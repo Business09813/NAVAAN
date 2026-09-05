@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOIR WEAR | Clothing Store</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+            NOIR<span>WEAR</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#men">Men</a>
+            <a href="#women">Women</a>
+            <a href="#kids">Kids</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+
+    </nav>
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <p class="small-title">NEW COLLECTION 2026</p>
+
+        <h1>
+            STYLE<br>
+            <span>THAT SPEAKS.</span>
+        </h1>
+
+        <p>
+            Modern clothing for men, women and kids.
+            Simple. Clean. Timeless.
+        </p>
+
+        <a href="#men" class="shop-button">
+            SHOP COLLECTION
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CATEGORIES ================= -->
+
+<section class="categories">
+
+    <a href="#men" class="category men-category">
+        <div>
+            <h2>MEN</h2>
+            <p>SHOP MEN'S COLLECTION</p>
+        </div>
+    </a>
+
+    <a href="#women" class="category women-category">
+        <div>
+            <h2>WOMEN</h2>
+            <p>SHOP WOMEN'S COLLECTION</p>
+        </div>
+    </a>
+
+    <a href="#kids" class="category kids-category">
+        <div>
+            <h2>KIDS</h2>
+            <p>SHOP KIDS' COLLECTION</p>
+        </div>
+    </a>
+
+</section>
+
+
+<!-- ================= MEN ================= -->
+
+<section class="products-section" id="men">
+
+    <div class="section-heading">
+        <p>COLLECTION</p>
+        <h2>MEN</h2>
+    </div>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=80"
+                 alt="Black Hoodie">
+
+            <div class="product-info">
+
+                <h3>Classic Black Hoodie</h3>
+                <p class="category-name">Men</p>
+
+                <strong>Rs. 2,499</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Classic Black Hoodie', 2499, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80"
+                 alt="Black T Shirt">
+
+            <div class="product-info">
+
+                <h3>Essential Black T-Shirt</h3>
+                <p class="category-name">Men</p>
+
+                <strong>Rs. 1,299</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Essential Black T-Shirt', 1299, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?auto=format&fit=crop&w=800&q=80"
+                 alt="Cargo Pants">
+
+            <div class="product-info">
+
+                <h3>Black Cargo Pants</h3>
+                <p class="category-name">Men</p>
+
+                <strong>Rs. 2,199</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                    <option>XXL</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Black Cargo Pants', 2199, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WOMEN ================= -->
+
+<section class="products-section light-section" id="women">
+
+    <div class="section-heading">
+        <p>COLLECTION</p>
+        <h2>WOMEN</h2>
+    </div>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?auto=format&fit=crop&w=800&q=80"
+                 alt="Women's Outfit">
+
+            <div class="product-info">
+
+                <h3>Oversized White Shirt</h3>
+                <p class="category-name">Women</p>
+
+                <strong>Rs. 1,599</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>XS</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Oversized White Shirt', 1599, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80"
+                 alt="Women's Dress">
+
+            <div class="product-info">
+
+                <h3>Minimal Black Dress</h3>
+                <p class="category-name">Women</p>
+
+                <strong>Rs. 2,799</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>XS</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Minimal Black Dress', 2799, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1506629905607-d9f6d4c2e6e8?auto=format&fit=crop&w=800&q=80"
+                 alt="Women's Jacket">
+
+            <div class="product-info">
+
+                <h3>Classic Black Jacket</h3>
+                <p class="category-name">Women</p>
+
+                <strong>Rs. 3,299</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>XS</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>XL</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Classic Black Jacket', 3299, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= KIDS ================= -->
+
+<section class="products-section" id="kids">
+
+    <div class="section-heading">
+        <p>COLLECTION</p>
+        <h2>KIDS</h2>
+    </div>
+
+    <div class="products-grid">
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=800&q=80"
+                 alt="Kids Hoodie">
+
+            <div class="product-info">
+
+                <h3>Kids Black Hoodie</h3>
+                <p class="category-name">Kids</p>
+
+                <strong>Rs. 1,499</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>2-3 Years</option>
+                    <option>4-5 Years</option>
+                    <option>6-7 Years</option>
+                    <option>8-10 Years</option>
+                    <option>11-13 Years</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Kids Black Hoodie', 1499, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?auto=format&fit=crop&w=800&q=80"
+                 alt="Kids T Shirt">
+
+            <div class="product-info">
+
+                <h3>Kids White T-Shirt</h3>
+                <p class="category-name">Kids</p>
+
+                <strong>Rs. 899</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>2-3 Years</option>
+                    <option>4-5 Years</option>
+                    <option>6-7 Years</option>
+                    <option>8-10 Years</option>
+                    <option>11-13 Years</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Kids White T-Shirt', 899, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+
+        <div class="product-card">
+
+            <img src="https://images.unsplash.com/photo-1542856391-010fb87dcfed?auto=format&fit=crop&w=800&q=80"
+                 alt="Kids Outfit">
+
+            <div class="product-info">
+
+                <h3>Kids Casual Outfit</h3>
+                <p class="category-name">Kids</p>
+
+                <strong>Rs. 1,799</strong>
+
+                <label>Size</label>
+
+                <select class="size-select">
+                    <option value="">Choose Size</option>
+                    <option>2-3 Years</option>
+                    <option>4-5 Years</option>
+                    <option>6-7 Years</option>
+                    <option>8-10 Years</option>
+                    <option>11-13 Years</option>
+                </select>
+
+                <label>Quantity</label>
+
+                <input
+                    type="number"
+                    class="quantity-input"
+                    min="1"
+                    value="1"
+                >
+
+                <button
+                    class="add-button"
+                    onclick="addToCart('Kids Casual Outfit', 1799, this)"
+                >
+                    ADD TO CART
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CART ================= -->
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<aside class="cart" id="cart">
+
+    <div class="cart-header">
+
+        <h2>Your Cart</h2>
+
+        <button onclick="closeCart()">✕</button>
+
+    </div>
+
+    <div id="cartItems">
+
+        <p class="empty-cart">
+            Your cart is empty.
+        </p>
+
+    </div>
+
+    <div class="cart-bottom">
+
+        <div class="total-row">
+            <span>Total</span>
+            <strong>Rs. <span id="cartTotal">0</span></strong>
+        </div>
+
+        <button class="checkout-button" onclick="openCheckout()">
+            ORDER ON WHATSAPP
+        </button>
+
+    </div>
+
+</aside>
+
+
+<!-- ================= CHECKOUT ================= -->
+
+<section class="checkout-section" id="checkout">
+
+    <div class="checkout-box">
+
+        <button class="close-checkout" onclick="closeCheckout()">
+            ✕
+        </button>
+
+        <h2>Delivery Details</h2>
+
+        <p>
+            Enter your details before sending your order to WhatsApp.
+        </p>
+
+        <label>Your Name</label>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your name"
+        >
+
+        <label>Phone Number</label>
+
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="03XX XXXXXXX"
+        >
+
+        <label>Delivery Address</label>
+
+        <textarea
+            id="customerAddress"
+            placeholder="Enter your complete address"
+            rows="4"
+        ></textarea>
+
+        <button
+            class="whatsapp-button"
+            onclick="sendOrderToWhatsApp()"
+        >
+            📱 SEND ORDER ON WHATSAPP
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer id="contact">
+
+    <div class="footer-logo">
+        NOIRWEAR
+    </div>
+
+    <p>
+        Modern clothing for everyone.
+    </p>
+
+    <p>
+        WhatsApp Orders: +92 312 1106924
+    </p>
+
+    <div class="copyright">
+        © 2026 NOIRWEAR. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
