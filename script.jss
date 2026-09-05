@@ -1,10 +1,9 @@
 // ==========================================
-// NOIRWEAR CLOTHING STORE
+// NAVAAN CLOTHING STORE
 // ==========================================
 
-// Your WhatsApp number
+// WhatsApp ordering number
 const whatsappNumber = "923121106924";
-
 
 // Cart
 let cart = [];
@@ -18,33 +17,33 @@ function addToCart(name, price, button) {
 
     const productCard = button.closest(".product-card");
 
-    const size = productCard.querySelector(".size-select").value;
+    if (!productCard) {
+        alert("Product could not be added.");
+        return;
+    }
 
-    const quantityInput =
-        productCard.querySelector(".quantity-input");
+    const sizeSelect = productCard.querySelector(".size-select");
+    const quantityInput = productCard.querySelector(".quantity-input");
 
-    const quantity = parseInt(quantityInput.value);
+    const size = sizeSelect.value;
+    const quantity = parseInt(quantityInput.value, 10);
 
 
     // Check size
     if (size === "") {
-
         alert("Please select a size first.");
-
         return;
     }
 
 
     // Check quantity
     if (!quantity || quantity < 1) {
-
         alert("Please enter a valid quantity.");
-
         return;
     }
 
 
-    // Add item
+    // Add product
     cart.push({
         name: name,
         price: price,
@@ -55,6 +54,7 @@ function addToCart(name, price, button) {
 
     updateCart();
 
+    // Open cart
     openCart();
 }
 
@@ -65,23 +65,23 @@ function addToCart(name, price, button) {
 
 function updateCart() {
 
-    const cartItems =
-        document.getElementById("cartItems");
-
-    const cartCount =
-        document.getElementById("cartCount");
-
-    const cartTotal =
-        document.getElementById("cartTotal");
+    const cartItems = document.getElementById("cartItems");
+    const cartCount = document.getElementById("cartCount");
+    const cartTotal = document.getElementById("cartTotal");
 
 
+    if (!cartItems || !cartCount || !cartTotal) {
+        return;
+    }
+
+
+    // Empty cart
     if (cart.length === 0) {
 
         cartItems.innerHTML =
             '<p class="empty-cart">Your cart is empty.</p>';
 
         cartCount.textContent = "0";
-
         cartTotal.textContent = "0";
 
         return;
@@ -89,19 +89,15 @@ function updateCart() {
 
 
     let html = "";
-
     let total = 0;
-
     let itemCount = 0;
 
 
     cart.forEach(function(item, index) {
 
-        const itemTotal =
-            item.price * item.quantity;
+        const itemTotal = item.price * item.quantity;
 
         total += itemTotal;
-
         itemCount += item.quantity;
 
 
@@ -121,13 +117,9 @@ function updateCart() {
 
                 </div>
 
-                <p>
-                    Size: ${item.size}
-                </p>
+                <p>Size: ${item.size}</p>
 
-                <p>
-                    Quantity: ${item.quantity}
-                </p>
+                <p>Quantity: ${item.quantity}</p>
 
                 <p>
                     Rs. ${itemTotal.toLocaleString()}
@@ -148,10 +140,14 @@ function updateCart() {
 
 
 // ==========================================
-// REMOVE PRODUCT
+// REMOVE PRODUCT FROM CART
 // ==========================================
 
 function removeFromCart(index) {
+
+    if (index < 0 || index >= cart.length) {
+        return;
+    }
 
     cart.splice(index, 1);
 
@@ -165,13 +161,17 @@ function removeFromCart(index) {
 
 function openCart() {
 
-    document
-        .getElementById("cart")
-        .classList.add("active");
+    const cartElement = document.getElementById("cart");
+    const overlay = document.getElementById("cartOverlay");
 
-    document
-        .getElementById("cartOverlay")
-        .classList.add("active");
+
+    if (cartElement) {
+        cartElement.classList.add("active");
+    }
+
+    if (overlay) {
+        overlay.classList.add("active");
+    }
 }
 
 
@@ -181,13 +181,17 @@ function openCart() {
 
 function closeCart() {
 
-    document
-        .getElementById("cart")
-        .classList.remove("active");
+    const cartElement = document.getElementById("cart");
+    const overlay = document.getElementById("cartOverlay");
 
-    document
-        .getElementById("cartOverlay")
-        .classList.remove("active");
+
+    if (cartElement) {
+        cartElement.classList.remove("active");
+    }
+
+    if (overlay) {
+        overlay.classList.remove("active");
+    }
 }
 
 
@@ -197,9 +201,12 @@ function closeCart() {
 
 function openCheckout() {
 
+    // Make sure cart has products
     if (cart.length === 0) {
 
-        alert("Your cart is empty. Please add a product first.");
+        alert(
+            "Your cart is empty. Please add a product first."
+        );
 
         return;
     }
@@ -207,9 +214,18 @@ function openCheckout() {
 
     closeCart();
 
-    document
-        .getElementById("checkout")
-        .classList.add("active");
+
+    const checkout = document.getElementById("checkout");
+
+    if (checkout) {
+        checkout.classList.add("active");
+
+        // Scroll to checkout
+        checkout.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+        });
+    }
 }
 
 
@@ -219,9 +235,11 @@ function openCheckout() {
 
 function closeCheckout() {
 
-    document
-        .getElementById("checkout")
-        .classList.remove("active");
+    const checkout = document.getElementById("checkout");
+
+    if (checkout) {
+        checkout.classList.remove("active");
+    }
 }
 
 
@@ -231,20 +249,46 @@ function closeCheckout() {
 
 function sendOrderToWhatsApp() {
 
+    // Make sure cart is not empty
+    if (cart.length === 0) {
+
+        alert(
+            "Your cart is empty. Please add a product first."
+        );
+
+        return;
+    }
+
+
+    // Get customer information
+    const nameInput =
+        document.getElementById("customerName");
+
+    const phoneInput =
+        document.getElementById("customerPhone");
+
+    const addressInput =
+        document.getElementById("customerAddress");
+
+
     const name =
-        document.getElementById("customerName").value.trim();
+        nameInput ? nameInput.value.trim() : "";
 
     const phone =
-        document.getElementById("customerPhone").value.trim();
+        phoneInput ? phoneInput.value.trim() : "";
 
     const address =
-        document.getElementById("customerAddress").value.trim();
+        addressInput ? addressInput.value.trim() : "";
 
 
-    // Check customer name
+    // Check name
     if (name === "") {
 
         alert("Please enter your name.");
+
+        if (nameInput) {
+            nameInput.focus();
+        }
 
         return;
     }
@@ -255,6 +299,10 @@ function sendOrderToWhatsApp() {
 
         alert("Please enter your phone number.");
 
+        if (phoneInput) {
+            phoneInput.focus();
+        }
+
         return;
     }
 
@@ -264,18 +312,26 @@ function sendOrderToWhatsApp() {
 
         alert("Please enter your delivery address.");
 
+        if (addressInput) {
+            addressInput.focus();
+        }
+
         return;
     }
 
 
+    // ==========================================
+    // CREATE WHATSAPP MESSAGE
+    // ==========================================
+
     let message =
-        "🛍️ *NEW CLOTHING ORDER* 🛍️\n\n";
+        "🛍️ *NEW NAVAAN CLOTHING ORDER* 🛍️\n\n";
 
 
     let total = 0;
 
 
-    // Products
+    // Add products
     cart.forEach(function(item, index) {
 
         const itemTotal =
@@ -307,24 +363,23 @@ function sendOrderToWhatsApp() {
     });
 
 
-    // Customer details
+    // Total
     message +=
         "💰 *TOTAL: Rs. " +
         total.toLocaleString() +
         "*\n\n";
 
 
+    // Customer details
     message +=
         "👤 Name: " +
         name +
         "\n";
 
-
     message +=
         "📞 Phone: " +
         phone +
         "\n";
-
 
     message +=
         "📍 Address: " +
@@ -336,7 +391,10 @@ function sendOrderToWhatsApp() {
         "Thank you for your order! ❤️";
 
 
-    // WhatsApp URL
+    // ==========================================
+    // CREATE WHATSAPP LINK
+    // ==========================================
+
     const whatsappURL =
         "https://wa.me/" +
         whatsappNumber +
@@ -344,16 +402,18 @@ function sendOrderToWhatsApp() {
         encodeURIComponent(message);
 
 
-    // Open WhatsApp
-    window.open(
-        whatsappURL,
-        "_blank"
-    );
+    // ==========================================
+    // OPEN WHATSAPP
+    // ==========================================
+
+    // Using location instead of window.open
+    // helps avoid popup blockers.
+    window.location.href = whatsappURL;
 }
 
 
 // ==========================================
-// INITIAL CART
+// INITIALIZE CART
 // ==========================================
 
 updateCart();
